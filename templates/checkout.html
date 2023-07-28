@@ -1,0 +1,327 @@
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title style="font-family: Georgia, 'Times New Roman', Times, serif;">Lopez E-Commerce</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    
+
+    <!-- Favicons -->
+    <!-- <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon"> -->
+
+    <!-- Google Fonts -->
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900' %}" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body style="background: rgba(62, 193, 213, 0.5);">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+
+      <div class="logo">
+        <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;"><a href="index.html"><span>Lò</span>pez</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li style="font-family: Georgia, 'Times New Roman', Times, serif;"><a class="nav-link scrollto " href="{% url 'index' %}">Home</a></li>
+          <li style="font-family: Georgia, 'Times New Roman', Times, serif;"><a class="nav-link scrollto " href="{% url 'store' %}">Products</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+          <!-- <li><a class="nav-link scrollto" href="#services">Services</a></li> -->
+          <!-- <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
+          <!-- <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
+          <!-- <li><a class="active" href="blog.html">Blog</a></li> -->
+          <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a> -->
+            <ul>
+              <!-- <li><a href="#">Drop Down 1</a></li> -->
+              <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a> -->
+                <ul>
+                  <!-- <li><a href="#">Deep Drop Down 1</a></li> -->
+                  <!-- <li><a href="#">Deep Drop Down 2</a></li> -->
+                  <!-- <li><a href="#">Deep Drop Down 3</a></li> -->
+                  <!-- <li><a href="#">Deep Drop Down 4</a></li> -->
+                  <!-- <li><a href="#">Deep Drop Down 5</a></li> -->
+                </ul>
+              </li>
+              <!-- <li><a href="#">Drop Down 2</a></li> -->
+              <!-- <li><a href="#">Drop Down 3</a></li> -->
+              <!-- <li><a href="#">Drop Down 4</a></li> -->
+            </ul>
+          </li>
+          <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Blog Header ======= -->
+    <div class="header-bg page-area">
+        <div class="container position-relative">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="slider-content text-center">
+                        <div class="header-bottom">
+                            <div class="layer2">
+                                <h1 class="title2" style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5">Lò</span>pez <span style="color: #3ec1d5">Avenue</span></h1>
+                            </div>
+                            <div class="layer3">
+                                <h2 class="title3" style="font-family: Georgia, 'Times New Roman', Times, serif;">The Fashion Store Page</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="box-element" id="form-wrapper">
+                <form id="form">
+                    {% csrf_token %}
+                    <div id="user-info">
+                        <div class="form-field">
+                            <input
+                                required
+                                class="form-control"
+                                type="text"
+                                name="name"
+                                placeholder="Name.."
+                            />
+                        </div>
+                        <div class="form-field">
+                            <input
+                                required
+                                class="form-control"
+                                type="email"
+                                name="email"
+                                placeholder="Email.."
+                            />
+                        </div>
+                    </div>
+
+                    <div id="shipping-info">
+                        <hr />
+                        <p>Shipping Information:</p>
+                        <hr />
+                        <div class="form-field">
+                            <input
+                                class="form-control"
+                                type="text"
+                                name="address"
+                                placeholder="Address.."
+                            />
+                        </div>
+                        <div class="form-field">
+                            <input
+                                class="form-control"
+                                type="text"
+                                name="city"
+                                placeholder="City.."
+                            />
+                        </div>
+                        <div class="form-field">
+                            <input
+                                class="form-control"
+                                type="text"
+                                name="state"
+                                placeholder="State.."
+                            />
+                        </div>
+                        <div class="form-field">
+                            <input
+                                class="form-control"
+                                type="text"
+                                name="zipcode"
+                                placeholder="Zip code.."
+                            />
+                        </div>
+                    </div>
+                    <hr />
+                    <input
+                        id="form-button"
+                        class="btn btn-success btn-block"
+                        type="submit"
+                        value="Continue"
+                    />
+                </form>
+            </div>
+
+            <br />
+            <div class="box-element hidden" id="payment-info">
+                <small>Paypal Options</small>
+                <button id="make-payment">Make Payment</button>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="box-element">
+                <a class="btn btn-outline-dark" href="{% url 'cart' %}"
+                    >&#x2190; Back to Cart</a
+                >
+
+                <hr />
+                <hr />
+                <h3>Order Summary</h3>
+                <hr />
+
+                {% for item in items %}
+                <div class="cart-row">
+                    <div style="flex: 2">
+                        <img class="row-image" src="{{item.product.imageURL}}" />
+                    </div>
+                    <div style="flex: 2"><p>{{item.product.name}}</p></div>
+                    <div style="flex: 1"><p>${{item.product.price|floatformat:2}}</p></div>
+                    <div style="flex: 1"><p>{{item.quantity}}</p></div>
+                </div>
+                {% endfor %}
+
+                <h5>Item: {{order.get_cart_items}}</h5>
+                <h5>Total: {{order.get_cart_total|floatformat:2}}</h5>
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- ======= Footer ======= -->
+    <footer>
+        <div class="footer-area">
+        <div class="container">
+            <div class="row">
+            <div class="col-md-4">
+                <div class="footer-content">
+                <div class="footer-head">
+                    <div class="footer-logo">
+                    <h2><span>e</span>Business</h2>
+                    </div>
+
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+                    <div class="footer-icons">
+                    <ul>
+                        <li>
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        </li>
+                        <li>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        </li>
+                        <li>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        </li>
+                        <li>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!-- end single footer -->
+            <div class="col-md-4">
+                <div class="footer-content">
+                <div class="footer-head">
+                    <h4>information</h4>
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                    </p>
+                    <div class="footer-contacts">
+                    <p><span>Tel:</span> +123 456 789</p>
+                    <p><span>Email:</span> contact@example.com</p>
+                    <p><span>Working Hours:</span> 9am-5pm</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!-- end single footer -->
+            <div class="col-md-4">
+                <div class="footer-content">
+                <div class="footer-head">
+                    <h4>Instagram</h4>
+                    <div class="flicker-img">
+                    <a href="#"><img src="{% static 'assets/img/portfolio/1.jpg' %}" alt=""></a>
+                    <a href="#"><img src="{% static 'assets/img/portfolio/2.jpg' %}" alt=""></a>
+                    <a href="#"><img src="{% static 'assets/img/portfolio/3.jpg' %}" alt=""></a>
+                    <a href="#"><img src="{% static 'assets/img/portfolio/4.jpg' %}" alt=""></a>
+                    <a href="#"><img src="{% static 'assets/img/portfolio/5.jpg' %}" alt=""></a>
+                    <a href="#"><img src="{% static 'assets/img/portfolio/6.jpg' %}" alt=""></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="footer-area-bottom">
+        <div class="container">
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="copyright text-center">
+                <!-- <p>
+                    &copy; Copyright <strong>Lopez Avenue</strong>. All Rights Reserved
+                </p> -->
+                </div>
+                <div class="credits">
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </footer><!-- End  Footer -->
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+    <script
+        src="{% static 'https://code.jquery.com/jquery-3.4.1.slim.min.js' %}"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"
+        ></script>
+    <script
+        src="{% static 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' %}"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"
+        ></script>
+
+        <script
+        src="{% static 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' %}"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"
+        ></script>
+
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="{% static 'assets/js/cart.js' %}"></script>
+    <script src="{% static 'assets/js/another.js' %}"></script>
+    <script src="{% static 'assets/js/checkout.js' %}"></script>
+</body> -->

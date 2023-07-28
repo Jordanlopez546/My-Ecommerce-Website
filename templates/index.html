@@ -1,0 +1,1135 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title style="font-family: Georgia, 'Times New Roman', Times, serif;">Lopez E-Commerce</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <!-- <link href="{% static 'assets/img/favicon.png' %}" rel="icon"> -->
+  <!-- <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon"> -->
+
+  <!-- Google Fonts -->
+  <link href="{% static 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900' %}" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+
+      <div class="logo">
+        <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;"><a style="cursor: pointer;" href="#"><span style="font-family: Georgia, 'Times New Roman', Times, serif;">Lò</span>pez</a></h1>
+        <!-- <a href="index.html"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a> -->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li style="font-family: Georgia, 'Times New Roman', Times, serif;"><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li style="font-family: Georgia, 'Times New Roman', Times, serif;"><a class="nav-link scrollto" href="#about">About</a></li>
+          <li style="font-family: Georgia, 'Times New Roman', Times, serif;"><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li style="font-family: Georgia, 'Times New Roman', Times, serif;"><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li style="font-family: Georgia, 'Times New Roman', Times, serif;"><a class="nav-link scrollto" href="#portfolio">Gallery</a></li>
+          <li style="font-family: Georgia, 'Times New Roman', Times, serif;"><a href="{% url 'product' %}">Products</a></li>
+          {% if user.is_authenticated %}
+          <li style="font-family: Georgia, 'Times New Roman', Times, serif;" class="dropdown"><a href="#"><span>{{request.user}}</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{% url 'setting' %}">Account Settings</a></li>
+              
+              <li><a href="{% url 'logout' %}">Log Out</a></li>
+              
+            </ul>
+          </li>
+          
+          {% else %}
+
+          <li style="font-family: Georgia, 'Times New Roman', Times, serif;" class="dropdown"><a href="#"><span>Sign In</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Log In</a></li>
+              
+              <li><a href="#">Sign Up</a></li>
+              
+            </ul>
+          </li>
+
+          {% endif %}
+          <li style="font-family: Georgia, 'Times New Roman', Times, serif;"><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <ol id="hero-carousel-indicators" class="carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <div class="carousel-item active" style="background-image: url(static/assets/img/hero-carousel/bout1.jpg)">
+            <div class="carousel-container">
+              <div class="container">
+                {% for message in messages %}
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;" class="animate__animated animate__fadeInDown"><span style="color: #3ec1d5">{{message}}</span></p>
+                {% endfor %}
+                <br>
+                <h2 style="font-family: Georgia, 'Times New Roman', Times, serif;" class="animate__animated animate__fadeInDown"><span style="color: #3ec1d5">Lò</span>pez <span style="color: #3ec1d5">Avenue</span></h2>
+                <p class="animate__animated animate__fadeInUp" style="font-family: Georgia, 'Times New Roman', Times, serif;">Experience Fashion at Its Best</p>
+                <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp" style="font-family: Georgia, 'Times New Roman', Times, serif;">Get Started</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image: url(static/assets/img/hero-carousel/bout2.jpg)">
+            <div class="carousel-container">
+              <div class="container">
+                {% for message in messages %}
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;" class="animate__animated animate__fadeInDown"><span style="color: #3ec1d5">{{message}}</span></p>
+                {% endfor %}
+                <br>
+                <h2 style="font-family: Georgia, 'Times New Roman', Times, serif;" class="animate__animated animate__fadeInDown"><span style="color: #3ec1d5">Lò</span>pez <span style="color: #3ec1d5">Avenue</span></h2>
+                <p class="animate__animated animate__fadeInUp" style="font-family: Georgia, 'Times New Roman', Times, serif;">Find Your Perfect Look</p>
+                <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp" style="font-family: Georgia, 'Times New Roman', Times, serif;">Get Started</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image: url(static/assets/img/hero-carousel/bout3.jpg)">
+            <div class="carousel-container">
+              <div class="container">
+                {% for message in messages %}
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;" class="animate__animated animate__fadeInDown"><span style="color: #3ec1d5">{{message}}</span></p>
+                {% endfor %}
+                <br>
+                <h2 style="font-family: Georgia, 'Times New Roman', Times, serif;" class="animate__animated animate__fadeInDown"><span style="color: #3ec1d5">Lò</span>pez <span style="color: #3ec1d5">Avenue</span></h2>
+                <p class="animate__animated animate__fadeInUp" style="font-family: Georgia, 'Times New Roman', Times, serif;">Unleash Your Inner Fashionista</p>
+                <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp" style="font-family: Georgia, 'Times New Roman', Times, serif;">Get Started</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+  <!-- End Hero Section -->
+
+  <main id="main">
+    <!-- ======= About Section ======= -->
+    <div id="about" class="about-area area-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2 style="font-family: Georgia, 'Times New Roman', Times, serif;">About <span style="color: #3ec1d5;">Lò</span>pez <span style="color: #3ec1d5; font-family: Georgia, 'Times New Roman', Times, serif;">Avenue</span></h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- single-well start-->
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="well-left">
+              <div class="single-well">
+                
+                  <img src="{% static 'assets/img/about/bout4.jpg' %}" alt="">
+                
+              </div>
+            </div>
+          </div>
+          <!-- single-well end-->
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="well-middle">
+              <div class="single-well">
+                <a href="#">
+                  <h4 class="sec-head" style="font-family: Georgia, 'Times New Roman', Times, serif;"> At <span style="color: #3ec1d5">Lò</span>pez <span style="color: #3ec1d5">Avenue</span></h4>
+                </a>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                  We believe that fashion should be accessible to everyone. That's why we offer a wide range of clothing options to suit different styles, sizes, and budgets. Whether you're looking for the perfect outfit for a special event or just want to update your wardrobe, we've got you covered.
+                </p>
+                <ul>
+                  <li style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    <i class="bi bi-check"></i> Selling quality products
+                  </li>
+                  <li style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    <i class="bi bi-check"></i> Offering personalized styling services
+                  </li style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                  <li style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    <i class="bi bi-check"></i> Providing exceptional customer service
+                  </li>
+                  <li style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    <i class="bi bi-check"></i> Offering trendy and unique fashion items
+                  </li>
+                  <li style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    <i class="bi bi-check"></i> Ensuring fast and reliable shipping
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- End col-->
+        </div>
+      </div>
+    </div><!-- End About Section -->
+
+    <!-- ======= Services Section ======= -->
+    <div id="services" class="services-area area-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline services-head text-center">
+              <h2 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5; font-family: Georgia, 'Times New Roman', Times, serif;">Our </span >Services</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row text-center">
+          <!-- Start Left services -->
+          <div class="col-md-4 col-sm-4 col-xs-12" style="cursor: pointer;">
+            <div class="about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                    <i class="bi bi-tags"></i>
+                  </a>
+                  <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5">Product </span>Listings</h4>
+                  <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    The webpage showcases all the products available for purchase. Each product is displayed with detailed information such as price, size, material, and color options.
+                  </p>
+                </div>
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12" style="cursor: pointer;">
+            <div class="about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                    <i class="bi bi-cart"></i>
+                  </a>
+                  <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5">Shopping </span>Cart</h4>
+                  <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    Customers can add items to their virtual shopping cart as they browse the store. This feature allows them to keep track of their purchases and check out when they are ready.
+                  </p>
+                </div>
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12" style="cursor: pointer;">
+            <!-- end col-md-4 -->
+            <div class=" about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                    <i class="bi bi-cash-coin"></i>
+                  </a>
+                  <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5">Checkout </span>Process</h4>
+                  <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    Customers can complete their purchases through a secure checkout process. They can choose their preferred payment method and enter their shipping and billing information.
+                  </p>
+                </div>
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12" style="cursor: pointer;">
+            <!-- end col-md-4 -->
+            <div class=" about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                    <i class="bi bi-people"></i>
+                  </a>
+                  <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5">Customer </span>Support</h4>
+                  <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    The online boutique store webpage provides customer support via email, chat, or phone. This feature allows customers to get assistance with any questions or concerns they may have.
+                  </p>
+                </div>
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+          <!-- End Left services -->
+          <div class="col-md-4 col-sm-4 col-xs-12" style="cursor: pointer;">
+            <!-- end col-md-4 -->
+            <div class=" about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                    <i class="bi bi-truck-flatbed"></i>
+                  </a>
+                  <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5">Shipping and </span>Delivery</h4>
+                  <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    The webpage provides information on shipping rates, estimated delivery times, and tracking numbers. This feature helps customers stay informed about the status of their order.
+                  </p>
+                </div>
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+          <!-- End Left services -->
+          <div class="col-md-4 col-sm-4 col-xs-12" style="cursor: pointer;">
+            <!-- end col-md-4 -->
+            <div class=" about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                    <i class="bi bi-life-preserver"></i>
+                  </a>
+                  <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5">24/7 </span>Support</h4>
+                  <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    Need help anytime? Our 24/7 support team is always available to assist you via phone, or email. We're committed to providing you with the best customer service experience possible.
+                  </p>
+                </div>
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Services Section -->
+
+    <!-- ======= Team Section ======= -->
+    <div id="team" class="our-team-area area-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5">Lò</span>pez <span style="color: #3ec1d5">Avenue's</span> Team</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 col-sm-3 col-xs-12" style="cursor: pointer;">
+            <div class="single-team-member">
+              <div class="team-img">
+                <a
+                  class="gallery-lightbox"
+                  
+                  >
+                  <img style="height: 350px; width: 350px;" src="{% static 'assets/img/team/photo.jpg' %}" alt="">
+                </a>
+                <div class="team-social-icon text-center">
+                  <ul>
+                    <li>
+                      <a href="https://www.facebook.com/jordan.lopez.56863">
+                        <i class="bi bi-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://twitter.com/Jordann_Lopez?t=X5rrNH1YtIINLsX5xgV1pQ&s=08">
+                        <i class="bi bi-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://instagram.com/jordann_lopez_?igshid=ZDdkNTZiNTM=">
+                        <i class="bi bi-instagram"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="team-content text-center">
+                <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5">Jordan </span>Lopez</h4>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">The CEO</p>
+              </div>
+            </div>
+          </div>
+          <!-- End column -->
+          <div class="col-md-3 col-sm-3 col-xs-12" style="cursor: pointer;">
+            <div class="single-team-member">
+              <div class="team-img">
+                <a>
+                  <img style="height: 350px; width: 350px;" src="{% static 'assets/img/team/Mama.jpg' %}" alt="">
+                </a>
+                <div class="team-social-icon text-center">
+                  <ul>
+                    <li>
+                      <a href="https://www.facebook.com/jordan.lopez.56863">
+                        <i class="bi bi-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://twitter.com/Jordann_Lopez?t=X5rrNH1YtIINLsX5xgV1pQ&s=08">
+                        <i class="bi bi-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://instagram.com/jordann_lopez_?igshid=ZDdkNTZiNTM=">
+                        <i class="bi bi-instagram"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="team-content text-center">
+                <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5">Mama </span>Ezege</h4>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">CEO's Mum</p>
+              </div>
+            </div>
+          </div>
+          <!-- End column -->
+          <div class="col-md-3 col-sm-3 col-xs-12" style="cursor: pointer;">
+            <div class="single-team-member">
+              <div class="team-img">
+                <a>
+                  <img style="height: 350px; width: 350px;" src="{% static 'assets/img/team/pretty.jpg' %}" alt="">
+                </a>
+                <div class="team-social-icon text-center">
+                  <ul>
+                    <li>
+                      <a href="https://www.facebook.com/jordan.lopez.56863">
+                        <i class="bi bi-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://twitter.com/Jordann_Lopez?t=X5rrNH1YtIINLsX5xgV1pQ&s=08">
+                        <i class="bi bi-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://instagram.com/jordann_lopez_?igshid=ZDdkNTZiNTM=">
+                        <i class="bi bi-instagram"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="team-content text-center">
+                <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5">Goodness </span>Igolo</h4>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">The Manager</p>
+              </div>
+            </div>
+          </div>
+          <!-- End column -->
+          <div class="col-md-3 col-sm-3 col-xs-12" style="cursor: pointer;">
+            <div class="single-team-member">
+              <div class="team-img">
+                <a>
+                  <img style="height: 350px; width: 350px;" src="{% static 'assets/img/team/barry.jpg' %}" alt="">
+                </a>
+                <div class="team-social-icon text-center">
+                  <ul>
+                    <li>
+                      <a href="https://www.facebook.com/jordan.lopez.56863">
+                        <i class="bi bi-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://twitter.com/Jordann_Lopez?t=X5rrNH1YtIINLsX5xgV1pQ&s=08">
+                        <i class="bi bi-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://instagram.com/jordann_lopez_?igshid=ZDdkNTZiNTM=">
+                        <i class="bi bi-instagram"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="team-content text-center">
+                <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5">Barry </span>Kelechi</h4>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">Mechanics Expert</p>
+              </div>
+            </div>
+          </div>
+          <!-- End column -->
+        </div>
+      </div>
+    </div><!-- End Team Section -->
+
+    <!-- ======= Rviews Section ======= -->
+    <div class="reviews-area">
+      <div class="row g-0">
+        <div class="col-lg-6">
+          <img src="{% static 'assets/img/about/bout5.jpg' %}" alt="" class="img-fluid">
+        </div>
+        <div class="col-lg-6 work-right-text d-flex align-items-center">
+          <div class="px-5 py-5 py-lg-0">
+            <h2 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5;">Lò</span>pez <span style="color: #3ec1d5; font-family: Georgia, 'Times New Roman', Times, serif;">Avenue</span>
+            <h5 style="font-family: Georgia, 'Times New Roman', Times, serif;">Our curated selection and stunning design offer an experience like no other. Find your style and make it yours.</h5>
+            <a href="#contact" style="font-family: Georgia, 'Times New Roman', Times, serif;" class="ready-btn scrollto">Contact us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Rviews Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <div id="portfolio" class="portfolio-area area-padding fix">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5; font-family: Georgia, 'Times New Roman', Times, serif;">Some</span> of <span style="color: #3ec1d5; font-family: Georgia, 'Times New Roman', Times, serif;">Our</span> Products</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row wesome-project-1 fix">
+          <!-- Start Portfolio -page -->
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" style="font-family: Georgia, 'Times New Roman', Times, serif;" class="filter-active">All</li>
+              <li style="font-family: Georgia, 'Times New Roman', Times, serif;" data-filter=".filter-app">Shoe</li>
+              <li style="font-family: Georgia, 'Times New Roman', Times, serif;" data-filter=".filter-card">Outfit</li>
+              <li style="font-family: Georgia, 'Times New Roman', Times, serif;" data-filter=".filter-web">Jewelry</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row awesome-project-content portfolio-container">
+
+          <!-- portfolio-item start -->
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-app portfolio-item">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="{% static 'assets/img/portfolio/shoe2.jpg' %}"><img src="{% static 'assets/img/portfolio/shoe2.jpg' %}" alt="" /></a>
+                <div class="add-actions text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="{% static 'assets/img/portfolio/shoe2.jpg' %}">
+                      <h4>Addidas Footwear</h4>
+                      <span>Designer</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- portfolio-item end -->
+
+          <!-- portfolio-item start -->
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-web">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="{% static 'assets/img/portfolio/jew9.jpg' %}"><img src="{% static 'assets/img/portfolio/jew9.jpg' %}" alt="" /></a>
+                <div class="add-actions text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="{% static 'assets/img/portfolio/jew9.jpg' %}">
+                      <h4>Louis Vuitton</h4>
+                      <span>Designer</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- portfolio-item end -->
+
+          <!-- portfolio-item start -->
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-card">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="{% static 'assets/img/portfolio/shirt6.jpg' %}"><img src="{% static 'assets/img/portfolio/shirt6.jpg' %}" alt="" /></a>
+                <div class="add-actions text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="{% static 'assets/img/portfolio/shirt6.jpg' %}">
+                      <h4>Jackets</h4>
+                      <span>Designer</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-card">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="{% static 'assets/img/portfolio/shirt4.jpg' %}"><img src="{% static 'assets/img/portfolio/shirt4.jpg' %}" alt="" /></a>
+                <div class="add-actions text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="{% static 'assets/img/portfolio/shirt4.jpg' %}">
+                      <h4>Polo Top</h4>
+                      <span>Designer</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-card">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="{% static 'assets/img/portfolio/shirt1.jpg' %}"><img src="{% static 'assets/img/portfolio/shirt1.jpg' %}" alt="" /></a>
+                <div class="add-actions text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="{% static 'assets/img/portfolio/shirt1.jpg' %}">
+                      <h4>T-Shirts</h4>
+                      <span>Designer</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- portfolio-item end -->
+
+          <!-- portfolio-item start -->
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-web">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="{% static 'assets/img/portfolio/jew4.jpg' %}"><img style="height: 535px;" src="{% static 'assets/img/portfolio/jew4.jpg' %}" alt="" /></a>
+                <div class="add-actions text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="{% static 'assets/img/portfolio/jew4.jpg' %}">
+                      <h4>Ice Earring</h4>
+                      <span>Designer</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- portfolio-item end -->
+
+          <!-- portfolio-item start -->
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-app">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="{% static 'assets/img/portfolio/shoe6.jpg' %}"><img src="{% static 'assets/img/portfolio/shoe6.jpg' %}" alt="" /></a>
+                <div class="add-actions text-center text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="{% static 'assets/img/portfolio/shoe6.jpg' %}">
+                      <h4>Nike Footwear</h4>
+                      <span>Designer</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-app">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="{% static 'assets/img/portfolio/shoe1.jpg' %}"><img src="{% static 'assets/img/portfolio/shoe1.jpg' %}" alt="" /></a>
+                <div class="add-actions text-center text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="{% static 'assets/img/portfolio/shoe1.jpg' %}">
+                      <h4>Channel Footwear</h4>
+                      <span>Designer</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- portfolio-item end -->
+
+          <!-- portfolio-item start -->
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-web">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="{% static 'assets/img/portfolio/jew13.jpg' %}"><img src="{% static 'assets/img/portfolio/jew13.jpg' %}" alt="" /></a>
+                <div class="add-actions text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="{% static 'assets/img/portfolio/jew13.jpg' %}">
+                      <h4>Classic Rolex</h4>
+                      <span>Designer</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- portfolio-item end -->
+
+        </div>
+      </div>
+    </div><!-- End Portfolio Section -->
+
+    <!-- ======= Pricing Section ======= -->
+    <!-- <div id="pricing" class="pricing-area area-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2>Pricing Table</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="pri_table_list">
+              <h3>basic <br /> <span>$80 / month</span></h3>
+              <ol>
+                <li class="check"><i class="bi bi-check"></i><span>Online system</span></li>
+                <li class="check"><i class="bi bi-x"></i><span>Full access</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Free apps</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Multiple slider</span></li>
+                <li class="cross"><i class="bi bi-x"></i><span>Free domin</span></li>
+                <li class="cross"><i class="bi bi-x"></i><span>Support unlimited</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Payment online</span></li>
+                <li class="check"><i class="bi bi-x"></i><span>Cash back</span></li>
+              </ol>
+              <button>sign up now</button>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="pri_table_list active">
+              <span class="saleon">top sale</span>
+              <h3>standard <br /> <span>$110 / month</span></h3>
+              <ol>
+                <li class="check"><i class="bi bi-check"></i><span>Online system</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Full access</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Free apps</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Multiple slider</span></li>
+                <li class="cross"><i class="bi bi-x"></i><span>Free domin</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Support unlimited</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Payment online</span></li>
+                <li class="cross"><i class="bi bi-x"></i><span>Cash back</span></li>
+              </ol>
+              <button>sign up now</button>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="pri_table_list">
+              <h3>premium <br /> <span>$150 / month</span></h3>
+              <ol>
+                <li class="check"><i class="bi bi-check"></i><span>Online system</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Full access</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Free apps</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Multiple slider</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Free domin</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Support unlimited</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Payment online</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Cash back</span></li>
+              </ol>
+              <button>sign up now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>End Pricing Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <div id="testimonials" class="testimonials">
+      <div class="container">
+
+        <div class="testimonials-slider swiper">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static 'assets/img/team/photo.jpg' %}" class="testimonial-img" alt="">
+                <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5;">Jordan</span>Lopez</h3>
+                <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;">CEO &amp; Founder</h4>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Believe you can and you're halfway there.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static 'assets/img/team/Mama.jpg' %}" class="testimonial-img" alt="">
+                <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5;">Mama </span>Investor</h3>
+                <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;">CEO's Mum</h4>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  You miss 100% of the shots you don't take.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static 'assets/img/team/pretty.jpg' %}" class="testimonial-img" alt="">
+                <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5;">Goodness </span>Ogechi</h3>
+                <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;">The Manager</h4>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Success is not final, failure is not fatal: it is the courage to continue that counts.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static 'assets/img/team/barry.jpg' %}" class="testimonial-img" alt="">
+                <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5;">Barry </span>Kelechi</h3>
+                <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;">The Engineer</h4>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  The only way to do great work is to love what you do.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static 'assets/img/team/OnyeEgo.jpg' %}" class="testimonial-img" alt="">
+                <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5;">Jiggy </span>L.D.C</h3>
+                <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;">Celebrity Programmer</h4>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </div><!-- End Testimonials Section -->
+
+    <!-- ======= Blog Section ======= -->
+    <!-- <div id="blog" class="blog-area">
+      <div class="blog-inner area-padding">
+        <div class="blog-overly"></div>
+        <div class="container ">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="section-headline text-center">
+                <h2>Latest News</h2>
+              </div>
+            </div>
+          </div> -->
+          <!-- <div class="row"> -->
+            <!-- Start Left Blog -->
+            <!-- <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="single-blog">
+                <div class="single-blog-img">
+                  <a href="blog.html">
+                    <img src="{% static 'assets/img/blog/1.jpg' %}" alt="">
+                  </a>
+                </div>
+                <div class="blog-meta">
+                  <span class="comments-type">
+                    <i class="fa fa-comment-o"></i>
+                    <a href="#">13 comments</a>
+                  </span>
+                  <span class="date-type">
+                    <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+                  </span>
+                </div>
+                <div class="blog-text">
+                  <h4>
+                    <a href="blog.html">Assumenda repud eum veniam</a>
+                  </h4>
+                  <p> -->
+                    <!-- Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
+                  </p>
+                </div>
+                <span>
+                  <a href="blog.html" class="ready-btn">Read more</a>
+                </span>
+              </div> -->
+              <!-- Start single blog -->
+            <!-- </div> -->
+            <!-- End Left Blog-->
+            <!-- Start Left Blog -->
+            <!-- <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="single-blog">
+                <div class="single-blog-img">
+                  <a href="blog.html">
+                    <img src="{% static 'assets/img/blog/2.jpg' %}" alt="">
+                  </a>
+                </div>
+                <div class="blog-meta">
+                  <span class="comments-type">
+                    <i class="fa fa-comment-o"></i>
+                    <a href="#">130 comments</a>
+                  </span>
+                  <span class="date-type">
+                    <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+                  </span>
+                </div>
+                <div class="blog-text">
+                  <h4>
+                    <a href="blog.html">Explicabo magnam quibusdam.</a>
+                  </h4>
+                  <p>
+                    Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
+                  </p>
+                </div> -->
+                <!-- <span>
+                  <a href="blog.html" class="ready-btn">Read more</a>
+                </span>
+              </div> -->
+              <!-- Start single blog -->
+            </div>
+            <!-- End Left Blog-->
+            <!-- Start Right Blog-->
+            <!-- <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="single-blog">
+                <div class="single-blog-img">
+                  <a href="blog.html">
+                    <img src="{% static 'assets/img/blog/3.jpg' %}" alt="">
+                  </a>
+                </div>
+                <div class="blog-meta">
+                  <span class="comments-type">
+                    <i class="fa fa-comment-o"></i>
+                    <a href="#">10 comments</a>
+                  </span>
+                  <span class="date-type">
+                    <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+                  </span>
+                </div> -->
+                <!-- <div class="blog-text">
+                  <h4>
+                    <a href="blog.html">Lorem ipsum dolor sit amet</a>
+                  </h4>
+                  <p>
+                    Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
+                  </p>
+                </div>
+                <span>
+                  <a href="blog.html" class="ready-btn">Read more</a>
+                </span>
+              </div>
+            </div> -->
+            <!-- End Right Blog-->
+          <!-- </div>
+        </div>
+      </div>
+    </div>End Blog Section -->
+    
+    
+
+    <!-- ======= Suscribe Section ======= -->
+    <div class="suscribe-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs=12">
+            <div class="suscribe-text text-center">
+              <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;">Welcome to Lòpez Avenue</h3>
+              <a style="font-family: Georgia, 'Times New Roman', Times, serif; cursor: pointer;" class="sus-btn">Keep Shopping</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Suscribe Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <div id="contact" class="contact-area">
+      <div class="contact-inner area-padding">
+        <div class="contact-overly"></div>
+        <div class="container ">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="section-headline text-center">
+                <h2 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5;">Contact </span>us</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!-- Start contact icon column -->
+            <div class="col-md-4">
+              <div class="contact-icon text-center">
+                <div class="single-icon">
+                  <i class="bi bi-phone"></i>
+                  <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    Call: +2207103716<br>
+                    <span style="font-family: Georgia, 'Times New Roman', Times, serif;">Monday-Friday (9am-5pm)</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Start contact icon column -->
+            <div class="col-md-4">
+              <div class="contact-icon text-center">
+                <div class="single-icon">
+                  <i class="bi bi-envelope"></i>
+                  <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    Email: jordannwabuike@gmail.com<br>
+                    <span style="font-family: Georgia, 'Times New Roman', Times, serif;">Web: www.lopezavenue.com</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Start contact icon column -->
+            <div class="col-md-4">
+              <div class="contact-icon text-center">
+                <div class="single-icon">
+                  <i class="bi bi-geo-alt"></i>
+                  <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    Location: Fajara M Section<br>
+                    <span style="font-family: Georgia, 'Times New Roman', Times, serif;">Kombo, The Gambia.</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+
+            <!-- Start Google Map -->
+            <div class="col-md-6">
+              <!-- Start Map -->
+              <img style="height: 305px;" src="{% static 'assets/img/portfolio/jew8.jpg' %}" alt="" />
+            </div>
+            <!-- End Google Map -->
+
+            <!-- Start  contact (I will create another form here when i am ready to do that) -->
+            <div class="col-md-6">
+              <div class="form contact-form">
+                <form action="contact" method="POST">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <input type="text" name="username" class="form-control" placeholder="Your Name" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                  </div>
+                  <div class="text-center" style="font-family: Georgia, 'Times New Roman', Times, serif;"><button type="submit" class="sus-btn" style="font-family: Georgia, 'Times New Roman', Times, serif;">Send Message</button></div>
+                </form>
+              </div>
+            </div>
+            <!-- End Left contact -->
+          </div>
+        </div>
+      </div>
+    </div><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    <div class="footer-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="footer-content">
+              <div class="footer-head">
+                <div class="footer-logo">
+                  <h2 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5">Lò</span>pez <span style="color: #3ec1d5">Avenue</span></h2>
+                </div>
+
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">Find Your Perfect Look and Unleash Your Inner Fashionista.</p>
+                <div class="footer-icons">
+                  <ul>
+                    <li>
+                      <a href="https://www.facebook.com/jordan.lopez.56863"><i class="bi bi-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a href="https://twitter.com/Jordann_Lopez?t=X5rrNH1YtIINLsX5xgV1pQ&s=08"><i class="bi bi-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="https://instagram.com/jordann_lopez_?igshid=ZDdkNTZiNTM="><i class="bi bi-instagram"></i></a>
+                    </li>
+                    <!-- <li>
+                      <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end single footer -->
+          <div class="col-md-4">
+            <div class="footer-content">
+              <div class="footer-head">
+                <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;">Get in Touch</h4>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                  Thank you for visiting our online boutique store! We'd love to hear from you if you have any questions or feedback.
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                  <strong>NOTE:</strong> The Shipping fee is D100.
+                </p>
+                <div class="footer-contacts">
+                  <p style="font-family: Georgia, 'Times New Roman', Times, serif;"><span>Tel:</span> +2207103716</p>
+                  <p style="font-family: Georgia, 'Times New Roman', Times, serif;"><span>Email:</span> jordannwabuike@gmail.com</p>
+                  <p style="font-family: Georgia, 'Times New Roman', Times, serif;"><span>Working Hours:</span> 9am-5pm</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end single footer -->
+          <div class="col-md-4">
+            <div class="footer-content">
+              <div class="footer-head">
+                <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;">A Few More</h4>
+                <div class="flicker-img">
+                  <a><img src="{% static 'assets/img/portfolio/jew1.jpg' %}" alt=""></a>
+                  <a><img src="{% static 'assets/img/portfolio/jew2.jpg' %}" alt=""></a>
+                  <a><img src="{% static 'assets/img/portfolio/jew3.jpg' %}" alt=""></a>
+                  <a><img src="{% static 'assets/img/portfolio/jew15.jpg' %}" alt=""></a>
+                  <a><img src="{% static 'assets/img/portfolio/jew1.jpg' %}" alt=""></a>
+                  <a><img src="{% static 'assets/img/portfolio/shirt3.jpg' %}" alt=""></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-area-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="copyright text-center">
+              <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                &copy; Copyright <strong><span style="color: #3ec1d5; font-family: Georgia, 'Times New Roman', Times, serif;">Lò</span>pez <span style="color: #3ec1d5; font-family: Georgia, 'Times New Roman', Times, serif;">Avenue</span></strong>. A Home of Fashion.
+              </p>
+            </div>
+            <div class="credits" style="font-family: Georgia, 'Times New Roman', Times, serif;">
+              Designed by <a style="color: #3ec1d5">Jordan Lopez</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,269 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title style="font-family: Georgia, 'Times New Roman', Times, serif;">Lopez E-Commerce | Products</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  
+
+  <!-- Favicons -->
+  <!-- <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon"> -->
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+  <link href="{% static 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900' %}" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<!-- START FROM HERE NEXT TIME -->
+
+<body style="background: rgba(62, 193, 213, 0.39);">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+
+      <div class="logo">
+        <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;"><a href="{% url 'index' %}"><span>Lò</span>pez</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li style="font-family: Georgia, 'Times New Roman', Times, serif;"><a class="nav-link scrollto " href="{% url 'index' %}">Home</a></li>
+          <li style="font-family: Georgia, 'Times New Roman', Times, serif;"><a class="nav-link scrollto " href="{% url 'product' %}">Products</a></li>
+          <li style="font-family: Georgia, 'Times New Roman', Times, serif;"><a class="nav-link scrollto " href="{% url 'order' %}">Orders</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+          <!-- <li><a class="nav-link scrollto" href="#services">Services</a></li> -->
+          <!-- <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
+          <!-- <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
+          <!-- <li><a class="active" href="blog.html">Blog</a></li> -->
+          <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a> -->
+            <ul>
+              <!-- <li><a href="#">Drop Down 1</a></li> -->
+              <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a> -->
+                <ul>
+                  <!-- <li><a href="#">Deep Drop Down 1</a></li> -->
+                  <!-- <li><a href="#">Deep Drop Down 2</a></li> -->
+                  <!-- <li><a href="#">Deep Drop Down 3</a></li> -->
+                  <!-- <li><a href="#">Deep Drop Down 4</a></li> -->
+                  <!-- <li><a href="#">Deep Drop Down 5</a></li> -->
+                </ul>
+              </li>
+              <!-- <li><a href="#">Drop Down 2</a></li> -->
+              <!-- <li><a href="#">Drop Down 3</a></li> -->
+              <!-- <li><a href="#">Drop Down 4</a></li> -->
+            </ul>
+          </li>
+          <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Blog Header ======= -->
+    <div class="header-bg page-area">
+      <div class="container position-relative">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="slider-content text-center">
+              <div class="header-bottom">
+                <div class="layer2">
+                  <h1 class="title2" style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5">Lò</span>pez <span style="color: #3ec1d5">Avenue</span></h1>
+                </div>
+                <div class="layer3">
+                  <h2 class="title3" style="font-family: Georgia, 'Times New Roman', Times, serif;">The Fashion Store Page</h2>
+                </div>
+                {% for msg in messages %}
+                <h4 style="color: #3ec1d5;">{{msg}}</h4>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Blog Header -->
+
+<div class="row">
+  {% for cart in carts %}
+  <div class="col-md-3 mb-3">
+    <div class="card h-100">
+      <img class="card-img-top" src="{{cart.product.image.url}}" alt="Card image cap" style="height: 200px; object-fit: cover;">
+      <div class="card-body">
+        <h5 class="card-title" style="font-family: Georgia, 'Times New Roman', Times, serif; color: #37abbd;"><strong>{{cart.product.name}}</strong></h5>
+        <p class="card-text" style="font-family: Georgia, 'Times New Roman', Times, serif;"><strong>Price: D{{cart.product.price}}</strong></p>
+        <p class="card-text" style="font-family: Georgia, 'Times New Roman', Times, serif;"><strong>Shipping Fee: D100.0</strong></p>
+        <p class="card-text" style="font-family: Georgia, 'Times New Roman', Times, serif;"><strong>Total: D{{cart.total_amount}}</strong></p>
+        <div class="input-group mb-3">
+          <!-- You will check on it later -->
+          <!-- <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary minus-btn" type="button">-</button>
+          </div> -->
+          <!-- <input type="text" class="form-control text-center cart-item-count" value=""> 
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary plus-btn" type="submit">+</button>
+
+          </div> -->
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+        <form action="{% url 'remove_from_cart' %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="product_id" value="{{cart.product.id}}">
+          <button type="submit" class="btn btn-primary add-to-cart-btn">Remove Cart</button>
+        </form>
+        <form action="{% url 'place_order' %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="product_id" value="{{cart.product.id}}">
+          <button type="submit" class="btn btn-primary add-to-cart-btn">Place Order</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    <div class="footer-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="footer-content">
+              <div class="footer-head">
+                <div class="footer-logo">
+                  <h2 style="font-family: Georgia, 'Times New Roman', Times, serif;"><span style="color: #3ec1d5">Lò</span>pez <span style="color: #3ec1d5">Avenue</span></h2>
+                </div>
+
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">Find Your Perfect Look and Unleash Your Inner Fashionista.</p>
+                <div class="footer-icons">
+                  <ul>
+                    <li>
+                      <a href="https://www.facebook.com/jordan.lopez.56863"><i class="bi bi-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a href="https://twitter.com/Jordann_Lopez?t=X5rrNH1YtIINLsX5xgV1pQ&s=08"><i class="bi bi-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="https://instagram.com/jordann_lopez_?igshid=ZDdkNTZiNTM="><i class="bi bi-instagram"></i></a>
+                    </li>
+                    <!-- <li>
+                      <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end single footer -->
+          <div class="col-md-4">
+            <div class="footer-content">
+              <div class="footer-head">
+                <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;">Get in Touch</h4>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                  Thank you for visiting our online boutique store! We'd love to hear from you if you have any questions or feedback.
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                  <strong>NOTE:</strong> The Shipping fee is D100.
+                </p>
+                <div class="footer-contacts">
+                  <p style="font-family: Georgia, 'Times New Roman', Times, serif;"><span>Tel:</span> +2207103716</p>
+                  <p style="font-family: Georgia, 'Times New Roman', Times, serif;"><span>Email:</span> jordannwabuike@gmail.com</p>
+                  <p style="font-family: Georgia, 'Times New Roman', Times, serif;"><span>Working Hours:</span> 9am-5pm</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end single footer -->
+          <div class="col-md-4">
+            <div class="footer-content">
+              <div class="footer-head">
+                <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;">A Few More</h4>
+                <div class="flicker-img">
+                  <a><img src="{% static 'assets/img/portfolio/jew1.jpg' %}" alt=""></a>
+                  <a><img src="{% static 'assets/img/portfolio/jew2.jpg' %}" alt=""></a>
+                  <a><img src="{% static 'assets/img/portfolio/jew3.jpg' %}" alt=""></a>
+                  <a><img src="{% static 'assets/img/portfolio/jew15.jpg' %}" alt=""></a>
+                  <a><img src="{% static 'assets/img/portfolio/jew1.jpg' %}" alt=""></a>
+                  <a><img src="{% static 'assets/img/portfolio/shirt3.jpg' %}" alt=""></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-area-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="copyright text-center">
+              <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                &copy; Copyright <strong><span style="color: #3ec1d5; font-family: Georgia, 'Times New Roman', Times, serif;">Lò</span>pez <span style="color: #3ec1d5; font-family: Georgia, 'Times New Roman', Times, serif;">Avenue</span></strong>. A Home of Fashion.
+              </p>
+            </div>
+            <div class="credits" style="font-family: Georgia, 'Times New Roman', Times, serif;">
+              Designed by <a style="color: #3ec1d5">Jordan Lopez</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script
+      src="{% static 'https://code.jquery.com/jquery-3.4.1.slim.min.js' %}"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="{% static 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' %}"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="{% static 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' %}"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
