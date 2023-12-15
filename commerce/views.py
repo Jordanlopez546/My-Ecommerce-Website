@@ -94,11 +94,11 @@ def order(request):
 def place_order(request):
 
     if request.method == "POST":
-        product_id = request.POST.get("product_id")
+        product_id = request.POST.get('product_id')
         user_profile = Profile.objects.get(user=request.user)
 
         product = Product.objects.get(pk=product_id)
-        addtocart_item = AddToCart.objects.get(product=product)
+        addtocart_item = AddToCart.objects.get(product=product, buyer=user_profile)
         order_item = Order.objects.create(product=addtocart_item, buyer=user_profile)
         order_item.save()
         messages.info(request, "Order Placed.")
